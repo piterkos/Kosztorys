@@ -1,0 +1,24 @@
+Akrylowanie;6;mb
+Lakierowanie;10;m2
+Lakierowanie  okna;15;szt
+Lakierowanie kominek+schody;10;m2
+Malowanie sufit+œciany;8;m2
+Montaz puszki  HDMI;;
+Monta¿  haków;10;szt
+Monta¿ baterii  kot³ownia;30;szt
+Monta¿ baterii kuchnia;30;szt
+Monta¿ dr¹¿ka;40;szt
+Monta¿ gniazdek elektrycznych;25;szt
+Monta¿ listw;25;szt
+Monta¿ listwy wykoñczeniowej;40;szt
+Monta¿ oœwietlenia;25;szt
+Monta¿ p³yty indukcyjnej;30;szt
+Monta¿ wieszaków kot³ownia;15;szt
+Podpiêcie syfonu kuchnia zmywarka;15;szt
+Poprawa przewodu czuinika;10;szt
+Poprawa w³azu;20;szt
+Silikonowanie parapetu;20;szt
+Wymiana baterii;30;szt
+Zabezpieczanie;10;m2
+kdfdfs;2;m2
+sdfafa;2;m2

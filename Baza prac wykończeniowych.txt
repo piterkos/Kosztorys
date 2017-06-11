@@ -22,3 +22,4 @@ Wymiana baterii;30;szt
 Zabezpieczanie;10;m2
 kdfdfs;2;m2
 sdfafa;2;m2
+sdgsdgsdg;2;dfgh

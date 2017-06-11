@@ -12,8 +12,7 @@ namespace Kosztorys
     public class Baza
     {
         public List<Usluga> Cennik;
-        string ścięzkaDoBazy = @"D:\OneDrive\Dokumenty\Visual Studio 2017\Projects\Kosztorys\Baza prac wykończeniowych.txt";
-
+        string ścięzkaDoBazy = Environment.CurrentDirectory + @"\Baza prac wykończeniowych.txt";
         public Baza()
         {
             StwórzBazę();

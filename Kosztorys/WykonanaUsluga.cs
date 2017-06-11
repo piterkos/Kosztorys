@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 namespace Kosztorys
 {
     [Serializable]
-    class WykonanaUsluga
+    public class WykonanaUsluga
     {
-        public int ID { get; set; }
         public string Pomieszczenie { get; set; }
         public string Opis { get; set; }
         public string Długosc { get; set; }
@@ -20,9 +19,8 @@ namespace Kosztorys
         public double Razem { get; set; }
         public string Uwagi { get; set; }
 
-        public WykonanaUsluga(int id, string pomieszczenie, string opis, string dlugosc, string szerokosc, string wysokosc, double ilosc, double stawka, string uwagi )
+        public WykonanaUsluga( string pomieszczenie, string opis, string dlugosc, string szerokosc, string wysokosc, double ilosc, double stawka, string uwagi )
         {
-            this.ID = id;
             this.Pomieszczenie = pomieszczenie;
             this.Opis = opis;
             this.Długosc = dlugosc;

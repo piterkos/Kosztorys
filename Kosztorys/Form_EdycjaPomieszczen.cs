@@ -13,11 +13,12 @@ namespace Kosztorys
     public partial class Form_EdycjaPomieszczen : Form
     {
         Zamowienie zamowienie;
-        public Form_EdycjaPomieszczen(ref Zamowienie zamowienie)
+        public Form_EdycjaPomieszczen(ref Zamowienie zamowienie, string nowePomieszczenie)
         {
             InitializeComponent();
             this.zamowienie = zamowienie;
             OdswiezListe();
+            textBox_pomieszczenieDoDodania.Text = nowePomieszczenie;
         }
 
         private void OdswiezListe()
@@ -30,6 +31,11 @@ namespace Kosztorys
         }
 
         private void btn_DodajPomieszczenie_Click(object sender, EventArgs e)
+        {
+            DodajPomieszczenie();
+        }
+
+        private void DodajPomieszczenie()
         {
             if (textBox_pomieszczenieDoDodania.Text != "")
             {
@@ -48,6 +54,26 @@ namespace Kosztorys
             int indeks = listBox_EdycjaPomieszczen.SelectedIndex;
             zamowienie.Pomieszczenia.RemoveAt(indeks);
             OdswiezListe();
+        }
+
+        private void Form_EdycjaPomieszczen_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                DodajPomieszczenie();
+                OdswiezListe();
+                Close();
+            }
+        }
+
+        private void listBox_EdycjaPomieszczen_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                DodajPomieszczenie();
+                OdswiezListe();
+                Close();
+            }
         }
     }
 }

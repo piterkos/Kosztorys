@@ -47,12 +47,25 @@ namespace Kosztorys
         private void PobierzListePlikow()
         {
             listaPlikow = new List<string>();
-            listaPlikow = Directory.GetFiles(Environment.CurrentDirectory + @"\Klienci\").ToList();
+            if(!Directory.Exists(@"C:\Kosztorys\Klienci"))
+                Directory.CreateDirectory(@"C:\Kosztorys\Klienci");
+            listaPlikow = Directory.GetFiles(@"C:\Kosztorys\Klienci\").ToList();
             foreach (string plik in listaPlikow)
             {
                 string nazwaPliku = Path.GetFileNameWithoutExtension(plik);
                 listBox_KlienciArchiwum.Items.Add(nazwaPliku);
             }
+        }
+
+        private void listBox_KlienciArchiwum_DoubleClick(object sender, EventArgs e)
+        {
+            if (listBox_KlienciArchiwum.SelectedItem != null)
+            {
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+            else
+                MessageBox.Show("Wybierz klienta lub zamknij okno naciskając [X]", "Nie wybrano klienta");
         }
     }
 }

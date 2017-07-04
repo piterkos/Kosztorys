@@ -41,6 +41,7 @@
             this.listBox_EdycjaPomieszczen.Name = "listBox_EdycjaPomieszczen";
             this.listBox_EdycjaPomieszczen.Size = new System.Drawing.Size(242, 290);
             this.listBox_EdycjaPomieszczen.TabIndex = 0;
+            this.listBox_EdycjaPomieszczen.KeyDown += new System.Windows.Forms.KeyEventHandler(this.listBox_EdycjaPomieszczen_KeyDown);
             // 
             // btn_DodajPomieszczenie
             // 
@@ -80,6 +81,7 @@
             this.Controls.Add(this.listBox_EdycjaPomieszczen);
             this.Name = "Form_EdycjaPomieszczen";
             this.Text = "Edycja Pomieszczeń";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form_EdycjaPomieszczen_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

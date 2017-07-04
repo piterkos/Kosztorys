@@ -25,6 +25,7 @@ namespace Kosztorys
         public void DodajWykonanaUsluge(WykonanaUsluga wykonanaUsluga)
         {
             WykonaneUslugi.Add(wykonanaUsluga);
+            OdswiezIdUslug();
         }
         public void DodajPomieszczenie(string pomieszczenie)
         {
@@ -32,6 +33,7 @@ namespace Kosztorys
         }
         private void DodajPodstawowePomieszczenia()
         {
+            //TODO: ustalić listę podstawowych pomieszczeń w pliku
             Pomieszczenia.Add("Pokój");
             Pomieszczenia.Add("Sypialnia");
             Pomieszczenia.Add("Mały pokój");
@@ -45,6 +47,18 @@ namespace Kosztorys
         {
             var suma = WykonaneUslugi.Sum(s => s.Razem);
             return suma.ToString() + " zł";
+        }
+        public void OdswiezIdUslug()
+        {
+            for (int i = 0; i < WykonaneUslugi.Count; i++)
+            {
+                WykonaneUslugi[i].Id = i + 1;
+            }
+        }
+        public void UsunWgNumeruUslugi(int nrUslugiDoUsuniecia)
+        {
+            WykonaneUslugi.RemoveAt(nrUslugiDoUsuniecia);
+            OdswiezIdUslug();
         }
     }
 }

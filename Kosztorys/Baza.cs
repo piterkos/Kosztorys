@@ -12,7 +12,7 @@ namespace Kosztorys
     public class Baza
     {
         public List<Usluga> Cennik;
-        string ścięzkaDoBazy = Environment.CurrentDirectory + @"\Baza prac wykończeniowych.txt";
+        string ścięzkaDoBazy = @"C:\Kosztorys\BazaPracWykonczeniowych.txt";
         public Baza()
         {
             StwórzBazę();
@@ -20,14 +20,18 @@ namespace Kosztorys
         private void StwórzBazę()
         {
             Cennik = new List<Usluga>();
-            OdczytajPlikBazy();
+            if (File.Exists(ścięzkaDoBazy))
+                OdczytajPlikBazy();
+            else
+            {
+                StworzPlikZpodstawowaBaza();
+                OdczytajPlikBazy();
+            }
         }
-
+        
         private void OdczytajPlikBazy()
         {
-            if (File.Exists(ścięzkaDoBazy))
-            {
-                using (StreamReader sr = new StreamReader(ścięzkaDoBazy,Encoding.Default))
+            using (StreamReader sr = new StreamReader(ścięzkaDoBazy,Encoding.Default))
                 {
                     while (!sr.EndOfStream)
                     {
@@ -36,12 +40,16 @@ namespace Kosztorys
                         Cennik.Add(new Usluga(tablicaBazy[0], tablicaBazy[1], tablicaBazy[2]));
                     }
                 }
-            }
-            else
+        }
+
+        private void StworzBazeNaPodstawiePliku()
+        {
+            OpenFileDialog openFile = new OpenFileDialog();
+            openFile.Title = "Wskaż plik z bazą!";
+            openFile.FileName = "plik dostępny pod adresem: http://www.piter.c0.pl/Baza.txt";
+           
+            if (openFile.ShowDialog() == DialogResult.OK)
             {
-                OpenFileDialog openFile = new OpenFileDialog();
-                openFile.Title = "Wskaż plik z bazą!";
-                openFile.ShowDialog();
                 ścięzkaDoBazy = openFile.FileName;
                 using (StreamReader sr = new StreamReader(ścięzkaDoBazy))
                 {
@@ -79,6 +87,10 @@ namespace Kosztorys
                 }
             }
             
+        }
+        private void StworzPlikZpodstawowaBaza()
+        {
+            File.Copy(Environment.CurrentDirectory + @"\Resources\BazaUslugPodstawowa.txt", ścięzkaDoBazy);
         }
     }
 }

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.plikToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -39,7 +38,7 @@
             this.dodajKlientaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.otwórzKlientaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.edytujPomieszczeniaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.CBox_listaZadań = new System.Windows.Forms.ComboBox();
+            this.CBox_BazaUslug = new System.Windows.Forms.ComboBox();
             this.lbl_Cena = new System.Windows.Forms.Label();
             this.numericUpDown_Dlugosc = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown_Szerokosc = new System.Windows.Forms.NumericUpDown();
@@ -47,21 +46,23 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_DodajUsluge = new System.Windows.Forms.Button();
             this.numericUpDown_Ilosc = new System.Windows.Forms.NumericUpDown();
             this.label5 = new System.Windows.Forms.Label();
             this.txtBox_Uwagi = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btn_Drukuj = new System.Windows.Forms.Button();
             this.numericUpDown_Cena = new System.Windows.Forms.NumericUpDown();
-            this.button3 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox_Pomieszczenia = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.lbl_Klient = new System.Windows.Forms.Label();
-            this.wykonanaUslugaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.textBox_Razem = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.lbl_JednostkaMiary = new System.Windows.Forms.Label();
+            this.lbl_MiaraPrzyIlosci = new System.Windows.Forms.Label();
+            this.btn_UsunWgZaznaczenia = new System.Windows.Forms.Button();
+            this.lbl_bledy = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Dlugosc)).BeginInit();
@@ -69,24 +70,30 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Wysokosc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Ilosc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Cena)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.wykonanaUslugaBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridView1.AllowDrop = true;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dataGridView1.CausesValidation = false;
             this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnF2;
             this.dataGridView1.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dataGridView1.Location = new System.Drawing.Point(265, 62);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(813, 491);
+            this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.ShowCellErrors = false;
+            this.dataGridView1.ShowRowErrors = false;
+            this.dataGridView1.Size = new System.Drawing.Size(1076, 491);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // menuStrip1
             // 
+            this.menuStrip1.AutoSize = false;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.plikToolStripMenuItem,
             this.dodajKlientaToolStripMenuItem,
@@ -94,19 +101,20 @@
             this.edytujPomieszczeniaToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1353, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1353, 28);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // plikToolStripMenuItem
             // 
+            this.plikToolStripMenuItem.AutoSize = false;
             this.plikToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripSeparator1,
             this.zapiszToolStripMenuItem,
             this.toolStripSeparator2,
             this.zakończToolStripMenuItem});
             this.plikToolStripMenuItem.Name = "plikToolStripMenuItem";
-            this.plikToolStripMenuItem.Size = new System.Drawing.Size(38, 20);
+            this.plikToolStripMenuItem.Size = new System.Drawing.Size(38, 22);
             this.plikToolStripMenuItem.Text = "Plik";
             // 
             // toolStripSeparator1
@@ -135,37 +143,41 @@
             // 
             // dodajKlientaToolStripMenuItem
             // 
+            this.dodajKlientaToolStripMenuItem.AutoSize = false;
+            this.dodajKlientaToolStripMenuItem.Margin = new System.Windows.Forms.Padding(10);
             this.dodajKlientaToolStripMenuItem.Name = "dodajKlientaToolStripMenuItem";
-            this.dodajKlientaToolStripMenuItem.Size = new System.Drawing.Size(88, 20);
+            this.dodajKlientaToolStripMenuItem.Size = new System.Drawing.Size(88, 22);
             this.dodajKlientaToolStripMenuItem.Text = "Dodaj klienta";
             this.dodajKlientaToolStripMenuItem.Click += new System.EventHandler(this.dodajKlientaToolStripMenuItem_Click);
             // 
             // otwórzKlientaToolStripMenuItem
             // 
+            this.otwórzKlientaToolStripMenuItem.AutoSize = false;
             this.otwórzKlientaToolStripMenuItem.Name = "otwórzKlientaToolStripMenuItem";
-            this.otwórzKlientaToolStripMenuItem.Size = new System.Drawing.Size(95, 20);
+            this.otwórzKlientaToolStripMenuItem.Size = new System.Drawing.Size(95, 22);
             this.otwórzKlientaToolStripMenuItem.Text = "Otwórz klienta";
             this.otwórzKlientaToolStripMenuItem.Click += new System.EventHandler(this.otwórzKlientaToolStripMenuItem_Click);
             // 
             // edytujPomieszczeniaToolStripMenuItem
             // 
+            this.edytujPomieszczeniaToolStripMenuItem.AutoSize = false;
             this.edytujPomieszczeniaToolStripMenuItem.Name = "edytujPomieszczeniaToolStripMenuItem";
-            this.edytujPomieszczeniaToolStripMenuItem.Size = new System.Drawing.Size(132, 20);
+            this.edytujPomieszczeniaToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.edytujPomieszczeniaToolStripMenuItem.Text = "Edytuj pomieszczenia";
             this.edytujPomieszczeniaToolStripMenuItem.Click += new System.EventHandler(this.edytujPomieszczeniaToolStripMenuItem_Click);
             // 
-            // CBox_listaZadań
+            // CBox_BazaUslug
             // 
-            this.CBox_listaZadań.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.CBox_listaZadań.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.CBox_listaZadań.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CBox_listaZadań.FormattingEnabled = true;
-            this.CBox_listaZadań.Location = new System.Drawing.Point(12, 114);
-            this.CBox_listaZadań.Name = "CBox_listaZadań";
-            this.CBox_listaZadań.Size = new System.Drawing.Size(247, 21);
-            this.CBox_listaZadań.TabIndex = 1;
-            this.CBox_listaZadań.SelectedIndexChanged += new System.EventHandler(this.CBox_listaZadań_SelectedIndexChanged);
-            this.CBox_listaZadań.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CBox_listaZadań_KeyDown);
+            this.CBox_BazaUslug.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.CBox_BazaUslug.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.CBox_BazaUslug.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CBox_BazaUslug.FormattingEnabled = true;
+            this.CBox_BazaUslug.Location = new System.Drawing.Point(12, 114);
+            this.CBox_BazaUslug.Name = "CBox_BazaUslug";
+            this.CBox_BazaUslug.Size = new System.Drawing.Size(247, 21);
+            this.CBox_BazaUslug.TabIndex = 2;
+            this.CBox_BazaUslug.SelectedIndexChanged += new System.EventHandler(this.CBox_BazaUslug_SelectedIndexChanged);
+            this.CBox_BazaUslug.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CBox_BazaUslug_KeyDown);
             // 
             // lbl_Cena
             // 
@@ -186,7 +198,7 @@
             0});
             this.numericUpDown_Dlugosc.Name = "numericUpDown_Dlugosc";
             this.numericUpDown_Dlugosc.Size = new System.Drawing.Size(120, 20);
-            this.numericUpDown_Dlugosc.TabIndex = 3;
+            this.numericUpDown_Dlugosc.TabIndex = 4;
             this.numericUpDown_Dlugosc.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // numericUpDown_Szerokosc
@@ -199,7 +211,7 @@
             0});
             this.numericUpDown_Szerokosc.Name = "numericUpDown_Szerokosc";
             this.numericUpDown_Szerokosc.Size = new System.Drawing.Size(120, 20);
-            this.numericUpDown_Szerokosc.TabIndex = 4;
+            this.numericUpDown_Szerokosc.TabIndex = 5;
             this.numericUpDown_Szerokosc.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // numericUpDown_Wysokosc
@@ -212,7 +224,7 @@
             0});
             this.numericUpDown_Wysokosc.Name = "numericUpDown_Wysokosc";
             this.numericUpDown_Wysokosc.Size = new System.Drawing.Size(120, 20);
-            this.numericUpDown_Wysokosc.TabIndex = 5;
+            this.numericUpDown_Wysokosc.TabIndex = 6;
             this.numericUpDown_Wysokosc.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label2
@@ -242,15 +254,15 @@
             this.label4.TabIndex = 9;
             this.label4.Text = "Wysokość:";
             // 
-            // button1
+            // btn_DodajUsluge
             // 
-            this.button1.Location = new System.Drawing.Point(12, 414);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(247, 23);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "Dodaj pracę do zestawienia [ENTER]";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btn_DodajUsluge.Location = new System.Drawing.Point(12, 414);
+            this.btn_DodajUsluge.Name = "btn_DodajUsluge";
+            this.btn_DodajUsluge.Size = new System.Drawing.Size(247, 23);
+            this.btn_DodajUsluge.TabIndex = 8;
+            this.btn_DodajUsluge.Text = "Dodaj pracę do zestawienia [ENTER]";
+            this.btn_DodajUsluge.UseVisualStyleBackColor = true;
+            this.btn_DodajUsluge.Click += new System.EventHandler(this.btn_DodajUsluge_Click);
             // 
             // numericUpDown_Ilosc
             // 
@@ -262,13 +274,14 @@
             0});
             this.numericUpDown_Ilosc.Name = "numericUpDown_Ilosc";
             this.numericUpDown_Ilosc.Size = new System.Drawing.Size(120, 20);
-            this.numericUpDown_Ilosc.TabIndex = 2;
+            this.numericUpDown_Ilosc.TabIndex = 3;
             this.numericUpDown_Ilosc.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.numericUpDown_Ilosc.Value = new decimal(new int[] {
             1,
             0,
             0,
             0});
+            this.numericUpDown_Ilosc.KeyDown += new System.Windows.Forms.KeyEventHandler(this.numericUpDown_Ilosc_KeyDown);
             // 
             // label5
             // 
@@ -286,7 +299,7 @@
             this.txtBox_Uwagi.Multiline = true;
             this.txtBox_Uwagi.Name = "txtBox_Uwagi";
             this.txtBox_Uwagi.Size = new System.Drawing.Size(241, 62);
-            this.txtBox_Uwagi.TabIndex = 6;
+            this.txtBox_Uwagi.TabIndex = 7;
             // 
             // label6
             // 
@@ -297,15 +310,16 @@
             this.label6.TabIndex = 14;
             this.label6.Text = "Uwagi:";
             // 
-            // button2
+            // btn_Drukuj
             // 
-            this.button2.Location = new System.Drawing.Point(1199, 60);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 15;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btn_Drukuj.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btn_Drukuj.Location = new System.Drawing.Point(265, 562);
+            this.btn_Drukuj.Name = "btn_Drukuj";
+            this.btn_Drukuj.Size = new System.Drawing.Size(139, 30);
+            this.btn_Drukuj.TabIndex = 15;
+            this.btn_Drukuj.Text = "Drukuj";
+            this.btn_Drukuj.UseVisualStyleBackColor = true;
+            this.btn_Drukuj.Click += new System.EventHandler(this.btn_Drukuj_Click);
             // 
             // numericUpDown_Cena
             // 
@@ -320,16 +334,6 @@
             this.numericUpDown_Cena.TabIndex = 16;
             this.numericUpDown_Cena.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(1199, 95);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 17;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -342,12 +346,15 @@
             // 
             // comboBox_Pomieszczenia
             // 
+            this.comboBox_Pomieszczenia.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBox_Pomieszczenia.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBox_Pomieszczenia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBox_Pomieszczenia.FormattingEnabled = true;
             this.comboBox_Pomieszczenia.Location = new System.Drawing.Point(12, 62);
             this.comboBox_Pomieszczenia.Name = "comboBox_Pomieszczenia";
             this.comboBox_Pomieszczenia.Size = new System.Drawing.Size(247, 21);
-            this.comboBox_Pomieszczenia.TabIndex = 19;
-            this.comboBox_Pomieszczenia.Click += new System.EventHandler(this.comboBox_Pomieszczenia_Click);
+            this.comboBox_Pomieszczenia.TabIndex = 1;
+            this.comboBox_Pomieszczenia.KeyDown += new System.Windows.Forms.KeyEventHandler(this.comboBox_Pomieszczenia_KeyDown);
             // 
             // label7
             // 
@@ -368,46 +375,83 @@
             this.lbl_Klient.TabIndex = 21;
             this.lbl_Klient.Text = "Nie zdefiniowano klienta";
             // 
-            // wykonanaUslugaBindingSource
-            // 
-            this.wykonanaUslugaBindingSource.DataSource = typeof(Kosztorys.WykonanaUsluga);
-            // 
             // textBox_Razem
             // 
-            this.textBox_Razem.Location = new System.Drawing.Point(978, 559);
+            this.textBox_Razem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.textBox_Razem.Location = new System.Drawing.Point(978, 562);
+            this.textBox_Razem.Multiline = true;
             this.textBox_Razem.Name = "textBox_Razem";
             this.textBox_Razem.ReadOnly = true;
-            this.textBox_Razem.Size = new System.Drawing.Size(100, 20);
+            this.textBox_Razem.Size = new System.Drawing.Size(100, 30);
             this.textBox_Razem.TabIndex = 22;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(924, 562);
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label8.Location = new System.Drawing.Point(902, 567);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(48, 13);
+            this.label8.Size = new System.Drawing.Size(70, 20);
             this.label8.TabIndex = 23;
             this.label8.Text = "RAZEM:";
+            // 
+            // lbl_JednostkaMiary
+            // 
+            this.lbl_JednostkaMiary.AutoSize = true;
+            this.lbl_JednostkaMiary.Location = new System.Drawing.Point(208, 148);
+            this.lbl_JednostkaMiary.Name = "lbl_JednostkaMiary";
+            this.lbl_JednostkaMiary.Size = new System.Drawing.Size(0, 13);
+            this.lbl_JednostkaMiary.TabIndex = 24;
+            // 
+            // lbl_MiaraPrzyIlosci
+            // 
+            this.lbl_MiaraPrzyIlosci.AutoSize = true;
+            this.lbl_MiaraPrzyIlosci.Location = new System.Drawing.Point(208, 177);
+            this.lbl_MiaraPrzyIlosci.Name = "lbl_MiaraPrzyIlosci";
+            this.lbl_MiaraPrzyIlosci.Size = new System.Drawing.Size(0, 13);
+            this.lbl_MiaraPrzyIlosci.TabIndex = 25;
+            // 
+            // btn_UsunWgZaznaczenia
+            // 
+            this.btn_UsunWgZaznaczenia.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btn_UsunWgZaznaczenia.Location = new System.Drawing.Point(424, 562);
+            this.btn_UsunWgZaznaczenia.Name = "btn_UsunWgZaznaczenia";
+            this.btn_UsunWgZaznaczenia.Size = new System.Drawing.Size(208, 30);
+            this.btn_UsunWgZaznaczenia.TabIndex = 26;
+            this.btn_UsunWgZaznaczenia.Text = "Usuń zaznaczony wpis";
+            this.btn_UsunWgZaznaczenia.UseVisualStyleBackColor = true;
+            this.btn_UsunWgZaznaczenia.Click += new System.EventHandler(this.btn_UsunWgZaznaczenia_Click);
+            // 
+            // lbl_bledy
+            // 
+            this.lbl_bledy.AutoSize = true;
+            this.lbl_bledy.Location = new System.Drawing.Point(12, 539);
+            this.lbl_bledy.Name = "lbl_bledy";
+            this.lbl_bledy.Size = new System.Drawing.Size(0, 13);
+            this.lbl_bledy.TabIndex = 27;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1353, 612);
+            this.ClientSize = new System.Drawing.Size(1353, 672);
+            this.Controls.Add(this.lbl_bledy);
+            this.Controls.Add(this.btn_UsunWgZaznaczenia);
+            this.Controls.Add(this.lbl_MiaraPrzyIlosci);
+            this.Controls.Add(this.lbl_JednostkaMiary);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.textBox_Razem);
             this.Controls.Add(this.lbl_Klient);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.comboBox_Pomieszczenia);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button3);
             this.Controls.Add(this.numericUpDown_Cena);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btn_Drukuj);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtBox_Uwagi);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.numericUpDown_Ilosc);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btn_DodajUsluge);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -415,7 +459,7 @@
             this.Controls.Add(this.numericUpDown_Szerokosc);
             this.Controls.Add(this.numericUpDown_Dlugosc);
             this.Controls.Add(this.lbl_Cena);
-            this.Controls.Add(this.CBox_listaZadań);
+            this.Controls.Add(this.CBox_BazaUslug);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -429,18 +473,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Wysokosc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Ilosc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Cena)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.wykonanaUslugaBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem plikToolStripMenuItem;
-        private System.Windows.Forms.ComboBox CBox_listaZadań;
+        private System.Windows.Forms.ComboBox CBox_BazaUslug;
         private System.Windows.Forms.Label lbl_Cena;
         private System.Windows.Forms.NumericUpDown numericUpDown_Dlugosc;
         private System.Windows.Forms.NumericUpDown numericUpDown_Szerokosc;
@@ -448,12 +489,12 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_DodajUsluge;
         private System.Windows.Forms.NumericUpDown numericUpDown_Ilosc;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtBox_Uwagi;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btn_Drukuj;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem zapiszToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
@@ -461,15 +502,19 @@
         private System.Windows.Forms.ToolStripMenuItem dodajKlientaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem otwórzKlientaToolStripMenuItem;
         private System.Windows.Forms.NumericUpDown numericUpDown_Cena;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBox_Pomieszczenia;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ToolStripMenuItem edytujPomieszczeniaToolStripMenuItem;
         private System.Windows.Forms.Label lbl_Klient;
-        private System.Windows.Forms.BindingSource wykonanaUslugaBindingSource;
+        //private System.Windows.Forms.BindingSource wykonanaUslugaBindingSource;
         private System.Windows.Forms.TextBox textBox_Razem;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lbl_JednostkaMiary;
+        private System.Windows.Forms.Label lbl_MiaraPrzyIlosci;
+        private System.Windows.Forms.Button btn_UsunWgZaznaczenia;
+        private System.Windows.Forms.Label lbl_bledy;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
 

@@ -22,15 +22,35 @@ namespace Kosztorys
 
         private void button1_Click(object sender, EventArgs e)
         {
-            decimal tempint;
-            if(decimal.TryParse(txtBox_Cena.Text, out tempint) && txtBox_usługa.Text != "" && txtBox_usługa.Text != "")
+            DodajUsluge();
+        }
+
+        private void DodajUsluge()
+        {
+            if (decimal.TryParse(txtBox_Cena.Text, out decimal tempint) && txtBox_usługa.Text != "" && txtBox_usługa.Text != "")
             {
                 zamowienie.DodajDoBazy(txtBox_usługa.Text, txtBox_Cena.Text, txtBox_Jednostka.Text);
-                this.Close();
+                Close();
             }
-                
+
             else
                 MessageBox.Show("Nie podano wszystkich argumentów lub cena nie jest wartością liczbową.");
+        }
+
+        private void txtBox_Cena_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtBox_Jednostka.Select();
+            }
+        }
+
+        private void txtBox_Jednostka_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                DodajUsluge();
+            }
         }
     }
 }

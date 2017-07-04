@@ -39,6 +39,7 @@
             this.listBox_KlienciArchiwum.Name = "listBox_KlienciArchiwum";
             this.listBox_KlienciArchiwum.Size = new System.Drawing.Size(215, 420);
             this.listBox_KlienciArchiwum.TabIndex = 0;
+            this.listBox_KlienciArchiwum.DoubleClick += new System.EventHandler(this.listBox_KlienciArchiwum_DoubleClick);
             // 
             // button1
             // 

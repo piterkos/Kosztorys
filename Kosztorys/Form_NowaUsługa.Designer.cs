@@ -50,6 +50,7 @@
             this.txtBox_Cena.Name = "txtBox_Cena";
             this.txtBox_Cena.Size = new System.Drawing.Size(205, 20);
             this.txtBox_Cena.TabIndex = 0;
+            this.txtBox_Cena.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBox_Cena_KeyDown);
             // 
             // txtBox_Jednostka
             // 
@@ -57,6 +58,7 @@
             this.txtBox_Jednostka.Name = "txtBox_Jednostka";
             this.txtBox_Jednostka.Size = new System.Drawing.Size(205, 20);
             this.txtBox_Jednostka.TabIndex = 1;
+            this.txtBox_Jednostka.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBox_Jednostka_KeyDown);
             // 
             // label1
             // 
